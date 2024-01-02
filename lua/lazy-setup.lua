@@ -144,12 +144,18 @@ require('lazy').setup({
   },
 
   {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
+    "catppuccin/nvim",
+    name = "catppuccin",
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'onedark'
-    end,
+      require("catppuccin").setup({
+        transparent_background = true,
+        integrations = {
+          neotree = true,
+        }
+      })
+      vim.cmd.colorscheme 'catppuccin'
+    end
   },
 
   {
@@ -208,18 +214,6 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    version = "*",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-    },
-    config = function()
-      require('neo-tree').setup {}
-    end,
-  },
-  {
     "windwp/nvim-autopairs",
     -- Optional dependency
     dependencies = { 'hrsh7th/nvim-cmp' },
@@ -243,7 +237,8 @@ require('lazy').setup({
       "MunifTanjim/nui.nvim",
     },
     config = function()
-      require('neo-tree').setup {}
+      require('neo-tree').setup({})
+      vim.keymap.set('n', '<leader>tt', '<Cmd>Neotree toggle<CR>', { desc = "toggle tree" })
     end,
   },
   "simrat39/rust-tools.nvim"
