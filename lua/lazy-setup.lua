@@ -241,5 +241,9 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>tt', '<Cmd>Neotree toggle<CR>', { desc = "toggle tree" })
     end,
   },
-  "simrat39/rust-tools.nvim"
+  {
+    "mrcjkb/rustaceanvim",
+    version = '^3',
+    ft = { 'rust' }
+  }
 }, {})

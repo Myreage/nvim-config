@@ -120,17 +120,18 @@ mason_lspconfig.setup_handlers {
   end
 }
 
-require("rust-tools").setup({
+-- rustaceanvim specifics
+vim.g.rustaceanvim = {
   server = {
-    capabilities = capabilities,
     on_attach = function(_, bufnr)
-      on_attach(_, bufnr)
-      -- Hover actions
-      vim.keymap.set("n", "K", require('rust-tools').hover_actions.hover_actions, { buffer = bufnr })
-    end,
-  },
-})
-
+      on_attach(_, bufnr);
+      vim.keymap.set("n", "<leader>a", function()
+          vim.cmd.RustLsp('codeAction')
+        end,
+        { silent = true, buffer = bufnr })
+    end
+  }
+}
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
