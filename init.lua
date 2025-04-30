@@ -785,6 +785,7 @@ require('lazy').setup({
         json = { 'prettierd' },
         html = { 'prettierd' },
         css = { 'prettierd' },
+        markdown = { 'prettierd' },
       },
     },
   },
