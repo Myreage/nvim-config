@@ -597,6 +597,7 @@ require('lazy').setup({
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
         typescript = { 'prettierd' },
         json = { 'prettierd' },
+        jsonc = { 'prettierd' },
         html = { 'prettierd' },
         css = { 'prettierd' },
         markdown = { 'prettierd' },
